@@ -551,31 +551,8 @@ body {
     padding: 2rem 0;
 }
 
-.pie-pagina p {
+.footer p {
   margin-bottom: 1rem;
-}
-
-.enlaces-sociales {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.enlaces-sociales a {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-decoration: none;
-  transition: transform 0.3s ease;
-}
-
-.enlaces-sociales a:hover {
-  transform: scale(1.1);
 }
 
 /* Animaciones */
