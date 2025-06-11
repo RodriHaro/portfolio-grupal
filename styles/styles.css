@@ -151,7 +151,12 @@ body {
     margin-bottom: 1rem;
     opacity: 0.9;
     animation: aparecer 1s ease-out 0.3s both;
-    color: linear-gradient(180deg, var(--white), var(--text-gray));
+    color: rgba(255, 255, 255, 0.9);
+    background: linear-gradient(180deg, var(--white), var(--text-gray));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* Fallback para navegadores que no soportan background-clip */
 }
 
 /* Secciones */
@@ -282,11 +287,6 @@ body {
   object-fit: cover;
   transition: transform 0.3s ease;
 }
-
-.circulo-perfil:hover .imagen-perfil {
-  transform: scale(1.1);
-}
-
 .info-miembro {
   text-align: center;
   margin-bottom: 1.2rem;
@@ -656,14 +656,40 @@ body {
   .lista-estudios > :last-child {
     max-width: 100%;
   }
+  
+  /* Ajustar navbar para móvil */
+  .barra-nav {
+    padding: 0.5rem 0;
+  }
+  
+  .contenedor-nav {
+    max-height: 90px; /* Ajustar altura del contenedor */
+    padding: 0 1rem;
+  }
+  
+  .logo img {
+    height: 80px; /* Reducir drásticamente el logo en tablets/móvil */
+    width: auto;
+  }
+  
   .menu-nav {
     display: none;
   }
+  /* Ajustar sección hero para móvil */
+  .heroe {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 100px; /* Ajustar para navbar más pequeño */
+    padding-bottom: 3rem;
+  }
 
   .contenido-heroe {
-    flex-direction: column-reverse;
+    flex-direction: column; /* Cambiar para poner texto arriba de imagen */
     text-align: center;
-    padding: 2rem;
+    justify-content: flex-start;
+    height: auto;
+    padding: 2rem 1rem;
+    gap: 1rem; /* Añadir gap para controlar espaciado entre elementos */
   }
   
   .lista-estudios {
@@ -672,19 +698,45 @@ body {
 
   .texto-heroe {
     text-align: center;
+    flex: 0;
   }
 
   .heroe h1 {
     font-size: 2.5rem;
+    /* Asegurar visibilidad en móvil */
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(106deg, #7de5ba 9.18%, #b6ffff 91.98%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  /* Fallback para h1 en navegadores que no soportan background-clip */
+  @supports not (-webkit-background-clip: text) {
+    .heroe h1 {
+      color: #7de5ba;
+      background: none;
+      -webkit-text-fill-color: initial;
+    }
   }
 
   .heroe .descripcion {
     font-size: 1.2rem;
+    /* Asegurar visibilidad en móvil */
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Fallback para descripción en navegadores que no soportan background-clip */
+  @supports not (-webkit-background-clip: text) {
+    .heroe .descripcion {
+      color: rgba(255, 255, 255, 0.9) !important;
+      background: none;
+      -webkit-text-fill-color: initial;
+    }
   }
 
   .imagen-heroe {
-    max-width: 80%;
-    margin: 0 auto;
+    max-width: 50%;
+    margin: 0 auto; /* Quitar margin-bottom excesivo */
   }
 
   .titulo-seccion {
@@ -711,6 +763,19 @@ body {
 }
 
 @media (max-width: 600px) {
+  /* Ajustes para pantallas pequeñas */
+  .logo img {
+    height: 70px; /* Logo más pequeño para móviles grandes */
+  }
+  
+  .barra-nav {
+    padding: 0.3rem 0;
+  }
+  
+  .contenedor-nav {
+    max-height: 80px;
+  }
+  
   .circulos-equipo {
     flex-direction: column;
     align-items: center;
@@ -732,5 +797,140 @@ body {
     width: 160px;
     height: 160px;
   }
+
+  /* Ajustar hero para pantallas pequeñas */
+  .heroe {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 90px; /* Ajustar para navbar más pequeño */
+    padding-bottom: 3rem;
+  }
+
+  .contenido-heroe {
+    padding: 1rem;
+    justify-content: flex-start;
+    height: auto;
+    gap: 1rem; /* Controlar espaciado entre elementos */
+  }
+
+  .texto-heroe {
+    margin-bottom: 0; /* Quitar margin-bottom ya que usamos gap */
+  }
+
+  .heroe h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .heroe .descripcion {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+  .estudio-año {
+   top: 0.3rem;
+   padding: 0.5rem 0.9rem;
+   font-size: 0.8rem;
+  }
 }
 
+/* Media query específica para pantallas muy pequeñas (500px y menos) */
+@media (max-width: 500px) {
+  /* Arreglar navbar para pantallas muy pequeñas */
+  .logo img {
+    height: 60px; /* Logo aún más pequeño para móviles pequeños */
+  }
+  
+  .barra-nav {
+    padding: 0.2rem 0;
+  }
+  
+  .contenedor-nav {
+    max-height: 70px;
+    padding: 0 0.5rem;
+  }
+  
+  /* Ajustar hero section */
+  .heroe {
+    padding-top: 80px; /* Ajustar para navbar más pequeño */
+    padding-bottom: 2rem;
+  }
+  
+  .contenido-heroe {
+    padding: 0.5rem;
+    gap: 0.8rem; /* Espaciado más pequeño para pantallas muy pequeñas */
+  }
+  
+  .texto-heroe {
+    margin-bottom: 0; /* Quitar margin ya que usamos gap */
+  }
+  
+  .heroe h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .heroe .descripcion {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+  
+  .imagen-heroe {
+    max-width: 60%;
+    margin: 0 auto; /* Quitar margin-bottom ya que usamos gap */
+  }
+  
+  /* Arreglar problema con .estudio-año que tapa el contenido */
+  .estudio-item {
+    padding: 1.5rem 1rem 2rem 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .estudio-año {
+    position: relative; /* Cambiar de absolute a relative */
+    top: auto;
+    right: auto;
+    margin-bottom: 1rem;
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 0.3rem 0.8rem;
+  }
+  
+  .estudio-item h3 {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+  }
+  
+  .estudio-item p {
+    font-size: 0.9rem;
+  }
+  
+  .tecnologias li {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.8rem;
+  }
+  
+  /* Mejorar tarjetas de miembros en pantallas muy pequeñas */
+  .tarjeta-miembro {
+    width: 90vw;
+    max-width: 280px;
+    min-width: unset;
+    height: auto;
+    min-height: 300px;
+    padding: 1rem 0.8rem 2rem 0.8rem;
+  }
+  
+  .tarjeta-miembro .circulo-perfil {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .nombre-miembro {
+    font-size: 1.1rem;
+  }
+  
+  .ubicacion-miembro {
+    font-size: 0.8rem;
+  }
+}
