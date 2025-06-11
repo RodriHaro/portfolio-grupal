@@ -15,7 +15,7 @@ body {
   color: white;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  background-color: #1a1a1a;
+  background-color: black;
 }
 
 /* Header y Navegación */
@@ -23,16 +23,17 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(17, 17, 17, 0.95);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   padding: 1rem 0;
   z-index: 1000;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .barra-nav.desplazada {
-  background: rgba(17, 17, 17, 0.98);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
 }
 
 .contenedor-nav {
@@ -52,14 +53,12 @@ body {
 }
 
 .logo img {
-  height: 180px;
+  height: 85px;
   width: auto;
-  transition: transform 0.3s ease;
+  border-radius: 4px;
 }
 
-.logo:hover img {
-  transform: scale(1.05);
-}
+
 
 .menu-nav {
   display: flex;
@@ -68,42 +67,24 @@ body {
 }
 
 .menu-nav a {
-  color: #fff;
+  color: #333;
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
   position: relative;
 }
 
-.menu-nav a:hover {
-  color: #A2F0C5;
-}
-
-.menu-nav a::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #A2F0C5;
-  transition: width 0.3s ease;
-}
-
-.menu-nav a:hover::after {
-  width: 100%;
-}
-
 /* Sección Hero */
 .heroe {
     height: 80vh;
-    background: #1a1a1a;
+    background: #0c0c0c;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     position: relative;
     overflow: hidden;
+    border-bottom: 2px solid rgba(162, 240, 197, 0.3);
 }
 
 .contenido-heroe {
@@ -133,7 +114,6 @@ body {
 .imagen-heroe img {
     max-width: 100%;
     height: auto;
-    animation: float 6s ease-in-out infinite;
 }
 
 .heroe h1 {
@@ -246,7 +226,6 @@ body {
 .tarjeta-miembro {
   background: #242832;
   border-radius: 24px;
-  box-shadow: 0 8px 32px rgba(41,121,255,0.10), 0 1.5px 8px rgba(0,0,0,0.10);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -263,7 +242,6 @@ body {
 }
 .tarjeta-miembro:hover {
   transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 16px 40px rgba(41,121,255,0.18), 0 2px 12px rgba(0,0,0,0.13);
 }
 
 .tarjeta-miembro .circulo-perfil {
@@ -677,8 +655,10 @@ body {
   }
   
   .logo img {
-    height: 80px; /* Reducir drásticamente el logo en tablets/móvil */
+    height: 42px; /* Logo apropiado para tablets/móvil */
     width: auto;
+    filter: brightness(1.3) contrast(1.2);
+    box-shadow: 0 0 8px rgba(162, 240, 197, 0.4);
   }
   
   .menu-nav {
@@ -774,7 +754,9 @@ body {
 @media (max-width: 600px) {
   /* Ajustes para pantallas pequeñas */
   .logo img {
-    height: 70px; /* Logo más pequeño para móviles grandes */
+    height: 38px; /* Logo más pequeño para móviles grandes */
+    filter: brightness(1.4) contrast(1.2);
+    box-shadow: 0 0 6px rgba(162, 240, 197, 0.5);
   }
   
   .barra-nav {
@@ -848,7 +830,9 @@ body {
 @media (max-width: 500px) {
   /* Arreglar navbar para pantallas muy pequeñas */
   .logo img {
-    height: 60px; /* Logo aún más pequeño para móviles pequeños */
+    height: 34px; /* Logo aún más pequeño para móviles pequeños */
+    filter: brightness(1.5) contrast(1.3);
+    box-shadow: 0 0 5px rgba(162, 240, 197, 0.6);
   }
   
   .barra-nav {
